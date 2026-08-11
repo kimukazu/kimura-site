@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お問い合わせ｜木村インダストリー株式会社</title>
+<meta name="description" content="木村インダストリー株式会社へのお問い合わせはこちらから。事業に関するご相談・ご質問など、お気軽にお問い合わせください。">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="お問い合わせ｜木村インダストリー株式会社">
+<meta property="og:description" content="木村インダストリー株式会社へのお問い合わせはこちらから。事業に関するご相談・ご質問など、お気軽にお問い合わせください。">
+<!-- og:image はGitHub Pages公開URL（リポジトリ名 kimura-site 前提）の絶対URL。
+     将来 独自ドメイン（例: https://www.kimuraindustry.jp/）を取得した場合は、
+     このURLをそのドメインのものに書き換えてください -->
+<meta property="og:image" content="https://kimukazu.github.io/kimura-site/assets/img/hero-poster.jpg">
+<meta property="og:locale" content="ja_JP">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="index.html" class="logo">KIMURA INDUSTRY</a>
+    <nav class="nav">
+      <a href="index.html#about">ABOUT</a>
+      <a href="index.html#services">SERVICES</a>
+      <a href="index.html#company">COMPANY</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="contact-hero fade-in">
+    <div class="container">
+      <h1>CONTACT</h1>
+      <p>事業に関するご相談・ご質問など、お気軽にお問い合わせください。内容を確認のうえ、担当者よりご連絡いたします。</p>
+    </div>
+  </section>
+
+  <section class="contact-form-section fade-in">
+    <div class="container">
+      <form class="contact-form" id="contactForm" novalidate>
+
+        <div class="form-group">
+          <label class="form-label" for="name">お名前 <span class="required-badge">必須</span></label>
+          <input class="form-input" type="text" id="name" name="name" autocomplete="name" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="company">会社名・団体名</label>
+          <input class="form-input" type="text" id="company" name="company" autocomplete="organization">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">メールアドレス <span class="required-badge">必須</span></label>
+          <input class="form-input" type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="tel">電話番号</label>
+          <input class="form-input" type="tel" id="tel" name="tel" autocomplete="tel">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">お問い合わせ内容 <span class="required-badge">必須</span></label>
+          <textarea class="form-textarea" id="message" name="message" required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">送信する<span class="arrow">→</span></button>
+        <p class="form-note">クリックすると、お使いのメールソフトが起動します。</p>
+
+      </form>
+    </div>
+  </section>
+
+  <section class="direct-contact fade-in">
+    <div class="container">
+      <h2>お電話・メールでも受け付けています</h2>
+      <div class="direct-contact-list">
+        <div class="direct-contact-item">
+          <span>TEL</span>
+          <a href="tel:+81165220437">0165-22-0437</a>
+        </div>
+        <div class="direct-contact-item">
+          <span>MAIL</span>
+          <a href="mailto:info@kimuraindustry.jp">info@kimuraindustry.jp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container fade-in">
+    <div class="footer-top">
+      <a href="index.html" class="footer-logo">KIMURA INDUSTRY</a>
+      <div class="footer-nav">
+        <div class="footer-nav-col en">
+          <a href="index.html#about">ABOUT</a>
+          <a href="index.html#services">SERVICES</a>
+          <a href="index.html#company">COMPANY</a>
+          <a href="contact.html">CONTACT</a>
+        </div>
+        <div class="footer-nav-col jp">
+          <a href="index.html#about">私たちについて</a>
+          <a href="index.html#services">事業内容</a>
+          <a href="index.html#company">会社概要</a>
+          <a href="contact.html">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-address">
+        <p>本所：〒095-0062　北海道士別市武徳町45線東3号</p>
+        <p>上富良野営業所：〒071-0502　北海道空知郡上富良野町西2線北25号</p>
+      </div>
+      <p class="footer-copyright">© Kimura Industry Inc. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
