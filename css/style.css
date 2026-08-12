@@ -89,6 +89,22 @@ button {
   padding-top: 0;
 }
 
+/* Figma実測値に合わせた各セクションの上下パディング（ID指定で .section を上書き） */
+#about {
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+
+#services {
+  padding-top: 0;
+  padding-bottom: 100px;
+}
+
+#company {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 /* ---------- Fade-in on scroll ---------- */
 .fade-in {
   opacity: 0;
@@ -383,7 +399,7 @@ button {
    フッター
    ========================================================= */
 .site-footer {
-  padding: 200px 0 40px;
+  padding: 25px 0 30px;
 }
 
 .footer-top {
@@ -617,6 +633,21 @@ button {
     padding: 90px 0;
   }
 
+  /* Figma実測値のデスクトップ余白をモバイルで比例的に縮小（約0.65倍） */
+  #about {
+    padding-top: 32px;
+    padding-bottom: 65px;
+  }
+
+  #services {
+    padding-bottom: 65px;
+  }
+
+  .site-footer {
+    padding-top: 16px;
+    padding-bottom: 20px;
+  }
+
   .header-inner {
     padding: 18px 30px;
   }
@@ -652,8 +683,11 @@ button {
     display: none;
   }
 
+  /* 差し替え後の画像(1830×750)は表示枠とほぼ同じ縦横比になったため、
+     モバイルでは固定高さでの左右トリミングをやめ、画像全体が見える形に */
   .about-photo {
-    height: 300px;
+    height: auto;
+    aspect-ratio: 1830 / 750;
   }
 
   .service-block {
@@ -722,16 +756,8 @@ button {
     left: 12px;
   }
 
-  .about-photo {
-    height: 220px;
-  }
-
   .bar-label {
     font-size: 15px;
-  }
-
-  .site-footer {
-    padding-top: 100px;
   }
 
   .submit-btn {
