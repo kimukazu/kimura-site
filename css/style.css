@@ -128,7 +128,7 @@ button {
 .header-inner {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   padding: 24px 50px;
 }
 
@@ -150,9 +150,10 @@ button {
 
 .nav {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 8px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 40px;
 }
 
 .nav a {
@@ -199,29 +200,8 @@ button {
 }
 
 /* =========================================================
-   理念セクション
-   ========================================================= */
-.philosophy {
-  padding: 160px 0 120px;
-}
-
-.philosophy h1 {
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 500;
-  font-size: clamp(2.5rem, 1.7rem + 3.5vw, 4.5rem); /* 40px 〜 72px */
-  line-height: 1.4;
-  letter-spacing: -0.03em;
-  margin-bottom: 48px;
-}
-
-.philosophy p {
-  font-size: 16px;
-  line-height: 2.25;
-  max-width: 640px;
-}
-
-/* =========================================================
    ABOUT
+   （理念セクションはFigma側でABOUTに統合されたため削除・統合済み）
    ========================================================= */
 .about-grid {
   display: grid;
@@ -231,7 +211,7 @@ button {
   margin-bottom: 60px;
 }
 
-.about-grid h2 {
+.about-grid h1 {
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 500;
   font-size: clamp(2rem, 1.3rem + 3vw, 3.75rem); /* 32px 〜 60px */
@@ -243,6 +223,11 @@ button {
   font-size: 16px;
   line-height: 2.25;
   padding-top: 12px;
+}
+
+.about-grid p + p {
+  padding-top: 0;
+  margin-top: 24px;
 }
 
 .about-photo {
@@ -685,14 +670,12 @@ button {
     padding: 0 30px;
   }
 
-  .section,
-  .philosophy {
+  .section {
     padding: 90px 0;
   }
 
   .header-inner {
     padding: 18px 30px;
-    align-items: center;
   }
 
   .logo img {
@@ -700,8 +683,6 @@ button {
   }
 
   .nav {
-    flex-direction: row;
-    align-items: center;
     gap: 16px;
   }
 
@@ -714,10 +695,6 @@ button {
     left: 16px;
   }
 
-  .philosophy {
-    padding: 110px 0 80px;
-  }
-
   .about-grid {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -725,6 +702,11 @@ button {
 
   .about-grid p {
     padding-top: 0;
+  }
+
+  /* 縦積みで幅が広く取れるため、指定改行を解除して自然に折り返す */
+  .about-grid p br {
+    display: none;
   }
 
   .about-photo {
@@ -794,10 +776,6 @@ button {
   .hero-media {
     top: 20px;
     left: 12px;
-  }
-
-  .philosophy p {
-    font-size: 15px;
   }
 
   .about-photo {
