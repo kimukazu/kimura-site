@@ -390,7 +390,7 @@ button {
 
 .service-photo {
   width: 100%;
-  height: 500px;
+  aspect-ratio: 500 / 340; /* Figma仕様: 500×340枠にcover表示。幅は列側のminmax(280px,500px)で上限500pxに制御 */
   overflow: hidden;
 }
 
@@ -715,17 +715,13 @@ button {
   }
 
   .about-photo {
-    height: 320px;
+    height: 300px;
   }
 
   .service-block {
     grid-template-columns: 1fr;
     gap: 32px;
     padding: 70px 0;
-  }
-
-  .service-photo {
-    height: 320px;
   }
 
   .company-row {
@@ -806,10 +802,6 @@ button {
   .bar-more {
     font-size: 13px;
     padding-right: 20px;
-  }
-
-  .service-photo {
-    height: 240px;
   }
 
   .footer-nav {
