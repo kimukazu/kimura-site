@@ -375,6 +375,19 @@ button {
   margin-bottom: 24px;
 }
 
+/* 英字ブランド名（THE SAKURA / Nord Guitar Vault / coffee & sweets）が
+   単語の途中で折れないようにする。ただし540px以下の狭幅では
+   横スクロール発生を防ぐため折り返しを許可する */
+.brand-nowrap {
+  white-space: nowrap;
+}
+
+@media (max-width: 540px) {
+  .brand-nowrap {
+    white-space: normal;
+  }
+}
+
 .service-desc {
   font-size: 16px;
   line-height: 2.25;
