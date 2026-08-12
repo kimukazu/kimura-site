@@ -133,12 +133,19 @@ button {
 }
 
 .logo {
-  font-family: "Inter", sans-serif;
-  font-weight: 700;
-  font-size: 22px;
-  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
   text-decoration: none;
   color: #000;
+  flex-shrink: 0;
+}
+
+.logo img {
+  height: 48px;
+  width: auto;
+  max-width: 100%;
+  display: block;
 }
 
 .nav {
@@ -442,12 +449,18 @@ button {
 }
 
 .footer-logo {
-  font-family: "Inter", sans-serif;
-  font-weight: 700;
-  font-size: 24px;
-  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
   text-decoration: none;
   color: #000;
+}
+
+.footer-logo img {
+  height: 56px;
+  width: auto;
+  max-width: 100%;
+  display: block;
 }
 
 .footer-nav {
@@ -673,6 +686,10 @@ button {
     align-items: center;
   }
 
+  .logo img {
+    height: 36px;
+  }
+
   .nav {
     flex-direction: row;
     align-items: center;
@@ -753,8 +770,8 @@ button {
     padding: 14px 20px;
   }
 
-  .logo {
-    font-size: 18px;
+  .logo img {
+    height: 32px;
   }
 
   .nav {
@@ -826,6 +843,12 @@ button {
   .header-inner {
     flex-wrap: wrap;
     row-gap: 8px;
+  }
+
+  /* 折り返し時にロゴ画像が幅を圧迫してnavが崩れないよう上限を設ける */
+  .logo img {
+    height: 28px;
+    max-width: 140px;
   }
 
   .nav {
