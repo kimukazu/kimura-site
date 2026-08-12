@@ -249,7 +249,6 @@ button {
   width: 100%;
   height: 500px;
   overflow: hidden;
-  margin-bottom: 60px;
 }
 
 .about-photo img {
@@ -302,6 +301,11 @@ button {
   letter-spacing: -0.02em;
   transition: color 0.4s ease;
   padding-left: 50px;
+}
+
+.section-label-bar {
+  /* セクション先頭に配置。直下の見出し/コンテンツとの間隔を確保 */
+  margin-bottom: 48px;
 }
 
 .section-label-bar .bar-label {
@@ -396,17 +400,9 @@ button {
   object-fit: cover;
 }
 
-.services-bar-wrap {
-  padding-top: 40px;
-}
-
 /* =========================================================
    COMPANY
    ========================================================= */
-.company-table {
-  margin-bottom: 60px;
-}
-
 .company-row {
   display: grid;
   grid-template-columns: 240px 1fr;
