@@ -219,14 +219,16 @@ button {
   letter-spacing: -0.03em;
 }
 
-.about-grid p {
-  font-size: 16px;
-  line-height: 2.25;
+.about-body {
   padding-top: 12px;
 }
 
-.about-grid p + p {
-  padding-top: 0;
+.about-body p {
+  font-size: 16px;
+  line-height: 2.25;
+}
+
+.about-body p + p {
   margin-top: 24px;
 }
 
@@ -700,12 +702,12 @@ button {
     gap: 24px;
   }
 
-  .about-grid p {
+  .about-body {
     padding-top: 0;
   }
 
   /* 縦積みで幅が広く取れるため、指定改行を解除して自然に折り返す */
-  .about-grid p br {
+  .about-body p br {
     display: none;
   }
 
