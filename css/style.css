@@ -408,11 +408,6 @@ button {
   display: block;
 }
 
-.footer-nav {
-  display: flex;
-  gap: 60px;
-}
-
 .footer-nav-col {
   display: flex;
   flex-direction: column;
@@ -423,12 +418,6 @@ button {
   text-decoration: none;
   color: #000;
   font-size: 15px;
-}
-
-.footer-nav-col.en a {
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.02em;
 }
 
 .footer-nav-col.jp a {
@@ -681,10 +670,6 @@ button {
     padding-bottom: 60px;
   }
 
-  .footer-nav {
-    gap: 40px;
-  }
-
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
@@ -735,11 +720,6 @@ button {
 
   .bar-label {
     font-size: 15px;
-  }
-
-  .footer-nav {
-    flex-direction: column;
-    gap: 24px;
   }
 
   .site-footer {
