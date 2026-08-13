@@ -201,7 +201,9 @@ button {
 
 .hero-media {
   position: absolute;
-  top: 60px;
+  /* ヘッダーは透明・fixedで浮いているため、実測ヘッダー高＋余白ぶんの
+     白帯を確保し、ロゴ/ナビの白チップがその中に収まるようにする */
+  top: calc(var(--header-h) + 12px);
   left: 30px;
   right: 0;
   bottom: 0;
@@ -672,7 +674,7 @@ button {
   }
 
   .hero-media {
-    top: 30px;
+    top: calc(var(--header-h) + 12px);
     left: 16px;
   }
 
@@ -764,7 +766,7 @@ button {
   }
 
   .hero-media {
-    top: 20px;
+    top: calc(var(--header-h) + 12px);
     left: 12px;
   }
 
