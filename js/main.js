@@ -1,6 +1,6 @@
 /* =========================================================
    木村インダストリー株式会社 コーポレートサイト
-   共通スクリプト（フェードイン / ヘッダー挙動 / お問い合わせフォーム）
+   共通スクリプト（フェードイン / ヘッダー挙動 / ハンバーガーメニュー / お問い合わせフォーム）
    ========================================================= */
 
 // JSが有効なことを示すため、真っ先に no-js クラスを外す
@@ -78,6 +78,54 @@ document.documentElement.classList.remove("no-js");
       window.addEventListener("load", updateHeaderHeight);
       window.addEventListener("orientationchange", updateHeaderHeight);
     }
+  }
+
+  /* ---------------------------------------------------------
+     2b. ハンバーガーメニュー（840px以下）
+     - 開閉で aria-expanded を更新
+     - 展開中は body に nav-open クラスを付けて背景スクロールを止める
+     - リンクタップ／×ボタン／Escキーで閉じる
+     --------------------------------------------------------- */
+  var navToggle = document.getElementById("navToggle");
+  var siteNav = document.getElementById("siteNav");
+
+  if (navToggle && siteNav) {
+    var navClose = siteNav.querySelector(".nav-close");
+
+    var openNav = function () {
+      siteNav.classList.add("is-open");
+      navToggle.setAttribute("aria-expanded", "true");
+      document.body.classList.add("nav-open");
+    };
+
+    var closeNav = function () {
+      siteNav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("nav-open");
+    };
+
+    navToggle.addEventListener("click", function () {
+      if (siteNav.classList.contains("is-open")) {
+        closeNav();
+      } else {
+        openNav();
+      }
+    });
+
+    if (navClose) {
+      navClose.addEventListener("click", closeNav);
+    }
+
+    toArray(siteNav.querySelectorAll("a")).forEach(function (link) {
+      link.addEventListener("click", closeNav);
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && siteNav.classList.contains("is-open")) {
+        closeNav();
+        navToggle.focus();
+      }
+    });
   }
 
   /* ---------------------------------------------------------

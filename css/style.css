@@ -49,6 +49,11 @@ body {
   padding-top: 0;
 }
 
+/* モバイルのハンバーガーメニュー展開中は背景スクロールを止める */
+body.nav-open {
+  overflow: hidden;
+}
+
 img,
 video {
   max-width: 100%;
@@ -187,6 +192,44 @@ button {
 .nav a:focus-visible {
   background: #000;
   color: #fff;
+}
+
+/* ハンバーガーメニュー用ボタン群。841px以上では非表示（840px以下は下部のメディアクエリで表示） */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  background: #fff;
+  border: none;
+  padding: 0;
+}
+
+.nav-toggle-bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #000;
+}
+
+.nav-close {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: #000;
+  line-height: 1;
+  padding: 0;
+}
+
+.nav-toggle:focus-visible,
+.nav-close:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
 }
 
 /* =========================================================
@@ -664,13 +707,63 @@ button {
     height: 36px;
   }
 
+  /* デフォルトは非表示。ハンバーガーで開いたときだけ .is-open で表示する */
   .nav {
+    display: none;
     gap: 10px;
   }
 
   .nav a {
     font-size: 12px;
     padding: 3px 6px;
+  }
+
+  /* ハンバーガーボタンを表示 */
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* メニュー展開時: 全画面の白背景メニュー */
+  .nav.is-open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    gap: 32px;
+    background: #fff;
+    z-index: 1100;
+  }
+
+  .nav.is-open a {
+    background: none;
+    font-size: 24px;
+    padding: 12px 24px;
+  }
+
+  .nav.is-open .nav-close {
+    display: flex;
+    position: absolute;
+    top: 18px;
+    right: 30px;
+    width: 44px;
+    height: 44px;
+    font-size: 32px;
+  }
+
+  /* メニュー展開中はハンバーガー自体を隠し、フォーカスも当たらないようにする */
+  .nav.is-open ~ .nav-toggle {
+    visibility: hidden;
+  }
+
+  /* JS無効時は従来どおり横並びチップナビを表示し、ハンバーガーは出さない */
+  .no-js .nav-toggle {
+    display: none;
+  }
+
+  .no-js .nav {
+    display: flex;
   }
 
   .hero-media {
@@ -692,11 +785,9 @@ button {
     display: none;
   }
 
-  /* 差し替え後の画像(1830×750)は表示枠とほぼ同じ縦横比になったため、
-     モバイルでは固定高さでの左右トリミングをやめ、画像全体が見える形に */
+  /* 840px以下では写真を非表示（PCでは従来どおり表示） */
   .about-photo {
-    height: auto;
-    aspect-ratio: 1830 / 750;
+    display: none;
   }
 
   .service-block {

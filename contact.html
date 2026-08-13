@@ -31,12 +31,18 @@
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
     <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="木村インダストリー株式会社"></a>
-    <nav class="nav">
+    <nav class="nav" id="siteNav">
+      <button type="button" class="nav-close" aria-label="閉じる">&times;</button>
       <a href="index.html#about">ABOUT</a>
       <a href="index.html#services">SERVICES</a>
       <a href="index.html#company">COMPANY</a>
       <a href="contact.html">CONTACT</a>
     </nav>
+    <button type="button" class="nav-toggle" id="navToggle" aria-label="メニュー" aria-expanded="false" aria-controls="siteNav">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
   </div>
 </header>
 
