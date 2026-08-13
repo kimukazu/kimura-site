@@ -112,6 +112,11 @@ button {
   padding-bottom: 0;
 }
 
+/* Figma仕様: COMPANY PROFILEバーと表の間の隙間は0（ABOUT/SERVICESの48pxはそのまま） */
+#company .section-label-bar {
+  margin-bottom: 0;
+}
+
 /* ---------- Fade-in on scroll ---------- */
 .fade-in {
   opacity: 0;
@@ -444,7 +449,7 @@ button {
    フッター
    ========================================================= */
 .site-footer {
-  padding: 25px 0 30px;
+  padding: 50px 0 30px;
 }
 
 .footer-top {
@@ -691,7 +696,7 @@ button {
   }
 
   .site-footer {
-    padding-top: 16px;
+    padding-top: 32px;
     padding-bottom: 20px;
   }
 
