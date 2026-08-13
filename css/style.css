@@ -17,21 +17,22 @@ html {
   scroll-behavior: smooth;
 }
 
-/* fixed ヘッダーの実測高さ。JSが読み込み後・リサイズ時に正確な値へ上書きする。
+/* fixed ヘッダー（透明背景＋白チップのロゴ/ナビ）の実測高さ。
+   JSが読み込み後・リサイズ時に正確な値へ上書きする。
    ここでの値は JS 無効時・実行前の暫定フォールバック */
 :root {
-  --header-h: 229px;
+  --header-h: 110px;
 }
 
 @media (max-width: 840px) {
   :root {
-    --header-h: 130px;
+    --header-h: 84px;
   }
 }
 
 @media (max-width: 540px) {
   :root {
-    --header-h: 112px;
+    --header-h: 70px;
   }
 }
 
@@ -44,7 +45,8 @@ body {
   line-height: 2.25;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  padding-top: var(--header-h);
+  /* ヘッダーは透明・fixedで浮いているため、本文側のオフセットは不要 */
+  padding-top: 0;
 }
 
 img,
@@ -132,13 +134,8 @@ button {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: #fff;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease;
-}
-
-.site-header.is-scrolled {
-  border-bottom-color: #000;
+  /* 透明ヘッダー: 下のコンテンツ(ヒーロー動画など)に重なって浮く構成 */
+  background: transparent;
 }
 
 .header-inner {
@@ -155,6 +152,8 @@ button {
   text-decoration: none;
   color: #000;
   flex-shrink: 0;
+  background: #fff;
+  padding: 6px 10px;
 }
 
 .logo img {
@@ -169,7 +168,7 @@ button {
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  gap: 40px;
+  gap: 15px;
 }
 
 .nav a {
@@ -179,14 +178,15 @@ button {
   letter-spacing: -0.02em;
   text-decoration: none;
   color: #000;
-  padding-bottom: 2px;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease;
+  background: #fff;
+  padding: 4px 8px;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .nav a:hover,
 .nav a:focus-visible {
-  border-bottom-color: #000;
+  background: #000;
+  color: #fff;
 }
 
 /* =========================================================
@@ -301,7 +301,7 @@ button {
   grid-template-columns: minmax(0, 1fr) minmax(280px, 500px);
   gap: 60px;
   align-items: center;
-  padding: 100px 0;
+  padding: 30px 0 50px;
   border-top: 1px solid #000;
 }
 
@@ -469,7 +469,9 @@ button {
    CONTACT ページ
    ========================================================= */
 .contact-hero {
-  padding: 160px 0 60px;
+  /* ヘッダーが透明・fixedで浮いているため、実測ヘッダー高＋余白ぶんを
+     上パディングとして確保し、見出しが隠れないようにする */
+  padding: calc(var(--header-h) + 20px) 0 60px;
 }
 
 .contact-hero h1 {
@@ -652,16 +654,21 @@ button {
     padding: 18px 30px;
   }
 
+  .logo {
+    padding: 5px 8px;
+  }
+
   .logo img {
     height: 36px;
   }
 
   .nav {
-    gap: 16px;
+    gap: 10px;
   }
 
   .nav a {
     font-size: 12px;
+    padding: 3px 6px;
   }
 
   .hero-media {
@@ -693,7 +700,7 @@ button {
   .service-block {
     grid-template-columns: 1fr;
     gap: 32px;
-    padding: 70px 0;
+    padding: 24px 0 40px;
   }
 
   /* 縦積みで幅が広く取れるため、指定改行を解除して自然に折り返す */
@@ -719,7 +726,7 @@ button {
   }
 
   .contact-hero {
-    padding: 110px 0 40px;
+    padding: calc(var(--header-h) + 20px) 0 40px;
   }
 }
 
@@ -735,16 +742,21 @@ button {
     padding: 14px 20px;
   }
 
+  .logo {
+    padding: 4px 7px;
+  }
+
   .logo img {
     height: 32px;
   }
 
   .nav {
-    gap: 12px;
+    gap: 8px;
   }
 
   .nav a {
     font-size: 11px;
+    padding: 3px 5px;
   }
 
   .hero {
@@ -780,6 +792,10 @@ button {
     row-gap: 8px;
   }
 
+  .logo {
+    padding: 3px 6px;
+  }
+
   /* 折り返し時にロゴ画像が幅を圧迫してnavが崩れないよう上限を設ける */
   .logo img {
     height: 28px;
@@ -790,11 +806,12 @@ button {
     flex-wrap: wrap;
     justify-content: flex-end;
     width: 100%;
-    gap: 4px 12px;
+    gap: 4px 8px;
   }
 
   .nav a {
     font-size: 10px;
+    padding: 2px 5px;
   }
 }
 

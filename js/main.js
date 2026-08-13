@@ -51,25 +51,15 @@ document.documentElement.classList.remove("no-js");
 
   /* ---------------------------------------------------------
      2. ヘッダー挙動
-     - スクロールしたら下線を表示
+     - ヘッダーは透明・fixedで浮いており、ロゴ／ナビ各リンクは
+       CSS側で白いチップとして表示される（背景色の切り替えはなし）
      - ヘッダーの実際の高さを測定して CSS変数 --header-h に反映
-       （本文の padding-top と、アンカー移動時の scroll-margin-top
-        の両方がこの変数を参照している）
+       （アンカー移動時の scroll-margin-top と、contact.html の
+        ヒーロー見出しのオフセットの両方がこの変数を参照している）
      --------------------------------------------------------- */
   var header = document.getElementById("siteHeader");
 
   if (header) {
-    var updateHeaderState = function () {
-      if (window.scrollY > 10) {
-        header.classList.add("is-scrolled");
-      } else {
-        header.classList.remove("is-scrolled");
-      }
-    };
-
-    updateHeaderState();
-    window.addEventListener("scroll", updateHeaderState, { passive: true });
-
     var updateHeaderHeight = function () {
       var h = header.offsetHeight;
       if (h > 0) {
