@@ -415,6 +415,103 @@ button {
   object-fit: cover;
 }
 
+/* 事業ブロック内の外部リンク（Instagram / 公式サイト） */
+.service-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+  margin-top: 24px;
+}
+
+/* タップ領域は 44px 四方を確保し、アイコン本体は 24px */
+.service-link-sns {
+  position: relative; /* 全体リンクの ::after より手前に出す */
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-left: -10px; /* 左端を文字と揃える */
+  transition: opacity 0.2s ease;
+}
+
+.service-link-sns img {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.service-link-site {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  color: #000;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.service-link-arrow {
+  font-size: 12px;
+}
+
+.service-link-sns:focus-visible,
+.service-link-site:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+/* ブロック全体を公式サイトへのリンクにする（stretched link） */
+.service-block--linked {
+  position: relative;
+}
+
+.service-block--linked .service-link-site::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* 写真はクリック判定から外し、ブロック全体のリンク（::after）が受け取るようにする。
+   ホバーで拡大した写真が ::after より前面に描画され、クリックを奪うのを防ぐ */
+.service-block--linked .service-photo img {
+  transition: transform 0.4s ease;
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .service-link-sns:hover,
+  .service-link-site:hover {
+    opacity: 0.6;
+  }
+
+  .service-block--linked:hover .service-photo img {
+    transform: scale(1.03);
+  }
+
+  .service-block--linked:hover .service-link-site {
+    opacity: 0.6;
+  }
+
+  /* Instagram アイコンに乗せているときは、公式サイト側のホバー反応を出さない */
+  .service-block--linked:has(.service-link-sns:hover) .service-photo img {
+    transform: none;
+  }
+
+  .service-block--linked:has(.service-link-sns:hover) .service-link-site {
+    opacity: 1;
+  }
+}
+
 /* =========================================================
    COMPANY
    ========================================================= */
@@ -806,6 +903,10 @@ button {
     display: none;
   }
 
+  .service-links {
+    margin-top: 20px;
+  }
+
   .company-row {
     grid-template-columns: 1fr;
     gap: 8px;
@@ -933,5 +1034,9 @@ button {
   .fade-in {
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .service-block--linked:hover .service-photo img {
+    transform: none;
   }
 }

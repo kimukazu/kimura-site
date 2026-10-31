@@ -13,7 +13,7 @@ Webページの基本的な言語だけでできています。そのため、�
 | `contact.html` | お問い合わせページ |
 | `css/style.css` | デザイン（色・文字の大きさ・余白など）をまとめたファイル |
 | `js/main.js` | 動き（スクロールで文字がふわっと出る、フォーム送信など）をまとめたファイル |
-| `assets/img/` | 写真ファイル |
+| `assets/img/` | 写真・アイコン画像ファイル |
 | `assets/video/` | トップページ冒頭の動画ファイル |
 
 ## よくある更新方法
@@ -57,6 +57,19 @@ Webページの基本的な言語だけでできています。そのため、�
 
 同時に画面に表示されている文字（`0165-22-0437` や `info@kimuraindustry.jp`）も
 書き換えてください。
+
+### 5. Instagram・外部サイトのリンクを変えたいとき
+
+`index.html` の中の以下のリンク先（`https://` から始まる部分）を書き換えてください。
+
+- `https://www.instagram.com/nordguitarvault/`（Nord Guitar Vault の Instagram）
+- `https://nordguitarvault.jp/`（Nord Guitar Vault の公式サイト。1箇所だけです。
+  事業ブロック全体を押したときの飛び先も、この同じリンクが担っています。
+  ドメインを変える場合は、同じ行にある画面の表示文字「nordguitarvault.jp」と、
+  `aria-label="..."`（音声読み上げ用の説明文）も合わせて書き換えてください）
+- `https://www.instagram.com/samoncoffeeandsweets/`（さもんの Instagram）
+
+Instagram のアイコンの画像は `assets/img/icon-instagram.svg` です。
 
 ## パソコンで見た目を確認する方法
 
