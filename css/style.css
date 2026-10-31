@@ -415,105 +415,59 @@ button {
   object-fit: cover;
 }
 
-/* 事業ブロック内の外部リンク（Instagram / 公式サイト） */
+/* 事業ブロック内の外部リンク（Instagram / 楽器購入ページ）。
+   押せるのはこの文字リンクだけ。ブロック全体や写真はリンクにしない */
 .service-links {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px 20px;
-  margin-top: 24px;
+  gap: 0 28px;
+  margin-top: 12px;
 }
 
-/* タップ領域は 44px 四方を確保し、アイコン本体は 24px */
-.service-link-sns {
-  position: relative; /* 全体リンクの ::after より手前に出す */
-  z-index: 1;
+/* 押しやすいよう高さ 44px を確保（文字はその中央に置かれる） */
+.service-link {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  margin-left: -10px; /* 左端を文字と揃える */
-  transition: opacity 0.2s ease;
-}
-
-.service-link-sns img {
-  display: block;
-  width: 24px;
-  height: 24px;
-}
-
-.service-link-site {
-  position: relative; /* 内側ではなく手前に出し、カード全体のリンクより優先して押せるようにする */
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  /* 日本語表示のため Noto Sans JP（Inter に日本語は無い） */
-  font-family: "Noto Sans JP", sans-serif;
+  gap: 8px;
+  min-height: 44px;
+  font-family: "Noto Sans JP", sans-serif; /* 日本語を含むため（Inter に日本語は無い） */
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.02em;
   line-height: 1.4;
   color: #000;
   text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.service-link-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.service-link-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   border-bottom: 1px solid currentColor;
   padding-bottom: 2px;
-  transition: opacity 0.2s ease;
 }
 
 .service-link-arrow {
   font-size: 12px;
 }
 
-.service-link-sns:focus-visible,
-.service-link-site:focus-visible {
+.service-link:focus-visible {
   outline: 2px solid #000;
   outline-offset: 2px;
 }
 
-/* ブロック全体を公式サイトへのリンクにする。
-   ブロック先頭に置いた透明な <a>（.service-link-card）を、ブロック全面に広げて覆いにする。
-   Instagram・購入ページのリンクは z-index: 1 で手前に出し、それぞれの飛び先を保つ */
-.service-block--linked {
-  position: relative;
-}
-
-/* カード全体を公式サイトへのリンクにする透明な覆い。
-   グリッドの子要素だが position: absolute なのでレイアウト（列・行）には入らない */
-.service-link-card {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  align-self: stretch;
-  justify-self: stretch;
-}
-
-.service-link-card:focus-visible {
-  outline: 2px solid #000;
-  outline-offset: -2px;
-}
-
-/* 写真はクリック判定から外し、ブロック全体のリンク（.service-link-card）が受け取るようにする。
-   ホバーで拡大した写真がリンクより前面に描画され、クリックを奪うのを防ぐ */
-.service-block--linked .service-photo img {
-  transition: transform 0.4s ease;
-  pointer-events: none;
-}
-
+/* ホバー表示はマウス等のポインターがある環境だけ（タッチ端末でタップ後に残らないように） */
 @media (hover: hover) {
-  .service-link-sns:hover,
-  .service-link-site:hover {
+  .service-link:hover {
     opacity: 0.6;
-  }
-
-  .service-block--linked:hover .service-photo img {
-    transform: scale(1.03);
-  }
-
-  /* Instagram・購入ページのリンクに乗せているときは、カード全体のホバー反応を出さない */
-  .service-block--linked:has(.service-link-sns:hover, .service-link-site:hover) .service-photo img {
-    transform: none;
   }
 }
 
@@ -909,7 +863,7 @@ button {
   }
 
   .service-links {
-    margin-top: 20px;
+    margin-top: 8px;
   }
 
   .company-row {
@@ -1039,9 +993,5 @@ button {
   .fade-in {
     opacity: 1 !important;
     transform: none !important;
-  }
-
-  .service-block--linked:hover .service-photo img {
-    transform: none;
   }
 }

@@ -63,11 +63,9 @@ Webページの基本的な言語だけでできています。そのため、�
 `index.html` の中の以下のリンク先（`https://` から始まる部分）を書き換えてください。
 
 - `https://www.instagram.com/nordguitarvault/`（Nord Guitar Vault の Instagram）
-- `https://www.nordguitarvault.jp/`（Nord Guitar Vault の公式サイト。事業ブロック全体を押したときの飛び先。
-  `class="service-link-card"` の行にあります）
 - `https://www.nordguitarvault.jp/category/all-products?sort=newest`（「楽器購入ページ」の文字リンクの飛び先。
-  別のページに変える場合は、同じ行にある画面の表示文字「楽器購入ページ」と
-  `aria-label="..."`（音声読み上げ用の説明文）も合わせて書き換えてください）
+  別のページに変える場合は、同じ行にある `aria-label="..."`（音声読み上げ用の説明文）と、
+  次の行の表示文字「楽器購入ページ」も合わせて書き換えてください）
 - `https://www.instagram.com/samoncoffeeandsweets/`（さもんの Instagram）
 
 Instagram のアイコンの画像は `assets/img/icon-instagram.svg` です。
