@@ -66,6 +66,7 @@ Webページの基本的な言語だけでできています。そのため、�
 - `https://www.nordguitarvault.jp/category/all-products?sort=newest`（「楽器購入ページ」の文字リンクの飛び先。
   別のページに変える場合は、同じ行にある `aria-label="..."`（音声読み上げ用の説明文）と、
   次の行の表示文字「楽器購入ページ」も合わせて書き換えてください）
+- `https://www.nordguitarvault.jp/repair`（「修理料金表」の文字リンクの飛び先。変える場合は上と同様に `aria-label` と表示文字も合わせて書き換えてください）
 - `https://www.instagram.com/samoncoffeeandsweets/`（さもんの Instagram）
 
 Instagram のアイコンの画像は `assets/img/icon-instagram.svg` です。
