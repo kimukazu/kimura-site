@@ -444,11 +444,14 @@ button {
 }
 
 .service-link-site {
+  position: relative; /* 内側ではなく手前に出し、カード全体のリンクより優先して押せるようにする */
+  z-index: 1;
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
+  /* 日本語表示のため Noto Sans JP（Inter に日本語は無い） */
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.02em;
   line-height: 1.4;
@@ -469,20 +472,30 @@ button {
   outline-offset: 2px;
 }
 
-/* ブロック全体を公式サイトへのリンクにする（stretched link） */
+/* ブロック全体を公式サイトへのリンクにする。
+   ブロック先頭に置いた透明な <a>（.service-link-card）を、ブロック全面に広げて覆いにする。
+   Instagram・購入ページのリンクは z-index: 1 で手前に出し、それぞれの飛び先を保つ */
 .service-block--linked {
   position: relative;
 }
 
-.service-block--linked .service-link-site::after {
-  content: "";
+/* カード全体を公式サイトへのリンクにする透明な覆い。
+   グリッドの子要素だが position: absolute なのでレイアウト（列・行）には入らない */
+.service-link-card {
   position: absolute;
   inset: 0;
   z-index: 0;
+  align-self: stretch;
+  justify-self: stretch;
 }
 
-/* 写真はクリック判定から外し、ブロック全体のリンク（::after）が受け取るようにする。
-   ホバーで拡大した写真が ::after より前面に描画され、クリックを奪うのを防ぐ */
+.service-link-card:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: -2px;
+}
+
+/* 写真はクリック判定から外し、ブロック全体のリンク（.service-link-card）が受け取るようにする。
+   ホバーで拡大した写真がリンクより前面に描画され、クリックを奪うのを防ぐ */
 .service-block--linked .service-photo img {
   transition: transform 0.4s ease;
   pointer-events: none;
@@ -498,17 +511,9 @@ button {
     transform: scale(1.03);
   }
 
-  .service-block--linked:hover .service-link-site {
-    opacity: 0.6;
-  }
-
-  /* Instagram アイコンに乗せているときは、公式サイト側のホバー反応を出さない */
-  .service-block--linked:has(.service-link-sns:hover) .service-photo img {
+  /* Instagram・購入ページのリンクに乗せているときは、カード全体のホバー反応を出さない */
+  .service-block--linked:has(.service-link-sns:hover, .service-link-site:hover) .service-photo img {
     transform: none;
-  }
-
-  .service-block--linked:has(.service-link-sns:hover) .service-link-site {
-    opacity: 1;
   }
 }
 
